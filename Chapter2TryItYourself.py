@@ -19,6 +19,16 @@ print(favoriteCar.upper())
 print(favoriteCar.lower())
 print(favoriteCar.title())
 
+# try it yourself 2-4
+favQuote = "\tYou will see me struggle, but you will never see me quit\t"
+print(favQuote)
+favQuote = "\tYou will see me struggle, but you will never see me quit\t".lstrip()
+print(favQuote)
+favQuote = "\tYou will see me struggle, but you will never se me quit\t".strip()
+print(favQuote)
 
+# try it yourself 2-5
+muliplicationProblem = 5 * 5
+print(muliplicationProblem)
 
 
