@@ -1,7 +1,7 @@
-favorite_marvel_moves = ["Avengers", "Thor:Ragnorok", "Captain America: Winter Soldier", "Guardians of the Galaxy"]
+favorite_marvel_movies = ["Avengers", "Thor: Ragnorok", "Captain America: Winter Soldier", "Guardians of the Galaxy"]
 
-print(favorite_marvel_moves)
+print(favorite_marvel_movies)
 
-favorite_marvel_moves.append("Black Panther")
-
-del favorite_marvel_moves[1]
+favorite_marvel_movies.sort()
+favorite_marvel_movies.reverse()
+print(favorite_marvel_movies)
