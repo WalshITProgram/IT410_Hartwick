@@ -2,18 +2,23 @@
 # this condition would evaulate to false
 number = 5
 print(number == 4)
+
 # this condition would evaulate to true
 speed = 75.5
 print(speed == 75.5)
+
 # this condition will evaulate to false
 favCoaster = "Dragster"
 print(favCoaster == "Millenium Force")
+
 # this condition will evaulate to true
 addition = 2 + 2
 print(addition == 4)
+
 # this condition will evaulate to false 
 strLessThan = "orange"
 print(strLessThan < "apple")
+
 # this condition will evaulate to true
 multiplication = 3 * 3
 print(multiplication < 10)
@@ -53,15 +58,18 @@ else:
 #problem 5-5
 # declare list
 numberList = list(range(1,56))
+
 # declare number variables
 number1 = 25
 number2 = 17
+
 # loop through the list to find number 25
 for number in numberList:
     if number == number1:
         print("Number 25 is found!")
     else: 
         print("Number 25 is not found")
+
 # loop through the list to find number 17
 for number in numberList:
     if number == number2:
@@ -73,6 +81,7 @@ for number in numberList:
 # declare both fav stores list and store sales list
 favStores = ["Target", "Best Buy", "Amazon", "Gardner White"]
 storeSales = ["Target", "Gardner White"]
+
 # check to see if the stores are currenly running a sale 
 for store in favStores:
     if store in storeSales:
