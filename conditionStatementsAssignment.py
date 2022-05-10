@@ -45,11 +45,24 @@ underpaid_salaries = []
 for count in range(0,len(total_hourly_rate)):
     if (total_hourly_rate[count] > 28.15) and (total_hourly_rate[count] < 30.65):
         underpaid_salaries.append(total_hourly_rate[count])
+# declare company raises list
 companyRaises = []
+print(employeeSalary)
 
-for count in range(0,len(total_hourly_rate)):
-    if total_hourly_rate[count] >= 22 and total_hourly_rate[count] <= 24:
-        companyRaises.append(total_hourly_rate[count])
+# for loop to fill the company raises 
+for count in range(0,len(employeeSalary)):
+    if (employeeSalary[count] >= 22) and (employeeSalary[count] <= 24):
+        newSalary = employeeSalary[count] * 1.05
+        companyRaises.append(newSalary)
+    elif (employeeSalary[count] >= 24) and (employeeSalary[count] <= 26):
+        newSalary = employeeSalary[count] * 1.04
+        companyRaises.append(newSalary)
+    elif (employeeSalary[count] >= 26) and (employeeSalary[count] <= 28):
+        newSalary = employeeSalary[count] * 1.03
+        companyRaises.append(newSalary)
+    else:
+        newSalary = employeeSalary[count] * 1.02
+        companyRaises.append(newSalary)
 print(companyRaises)
 
 
