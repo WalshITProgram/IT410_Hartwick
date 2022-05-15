@@ -39,7 +39,7 @@ if sixNum % 2 == 1:
     print("Number 6 is odd")
 else:
     sixNum = sixNum + 1
-    print(sixNum, " is odd")
+    print(f"{sixNum} is odd")
 
 # problem 5-4
 # declare list
@@ -85,7 +85,7 @@ storeSales = ["Target", "Gardner White"]
 # check to see if the stores are currenly running a sale 
 for store in favStores:
     if store in storeSales:
-        print(store, "is currenly running a sale!")
+        print(f"{store} is currenly running a sale!")
     else:
-        print(store, "is not currenly running a sale!")
+        print(f"{store} is not currenly running a sale!")
 
