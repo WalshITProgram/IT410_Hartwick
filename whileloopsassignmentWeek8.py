@@ -1,9 +1,12 @@
 #declare program running variable
 # this variable will become false it the user enters incorrect information  
-programRunning = True
-numOfEmployees = int(input("Please enter the number of employees(1-5) to enter data from: "))
+from operator import truediv
 
-for count in range(0,numOfEmployees):
+
+programRunning = True
+
+
+while programRunning:
     # get employee id from user
     employeeIdCheck = False
     while employeeIdCheck == False: 
@@ -16,13 +19,18 @@ for count in range(0,numOfEmployees):
             
 
     # get employee name from user 
-    employeeName = input("Please enter your first name: ")
+    
 
     # check employee name for anything other than letters 
-    employeeNameCheck = employeeName.isalpha()
-    if employeeNameCheck == False:
-        programRunning = False
-        break
+    
+    employeeNameCheck = False
+
+    while employeeNameCheck == False:
+        employeeName = input("Please enter your first name: ")
+        employeeNameCheck = employeeName.isalpha()
+        if employeeNameCheck == False:
+            continue
+        
 
     # declare bad characters list for name
     nameBadChars = ['!', '"', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '=', '+' ',', '<', '>', '/', '?', ';', ':', '[', ']', '{', '}',')']        
@@ -70,6 +78,7 @@ for count in range(0,numOfEmployees):
         print(f"Hello, {employeeName}. Your Employee ID is {employeeId}, and your email address is {employeeEmailAddress}. Your address is {employeeAddress}. ")
         
     
-    # set the program running variable to false so the program doesnt run again
-    programRunning = False
+    enterAnotherEmployee = input("Would you like to enter another employee(Enter Y or N.").lower()
+    if enterAnotherEmployee == "n":
+        programRunning = False
 

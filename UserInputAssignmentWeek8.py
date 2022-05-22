@@ -1,13 +1,9 @@
-#declare program running variable
-# this variable will become false it the user enters incorrect information  
-programRunning = True
-while programRunning:
+while True:
     # get employee id from user 
     employeeId = input("Please enter your employee id: ")
-    # check employee id to see if it is a digit or less then 7 digits
+    # check employee id to see if it is a digit or greater than 7 digits
     employeeIdCheck = employeeId.isdigit()
     if len(employeeId) > 7 or employeeIdCheck == False:
-        programRunning = False
         break
 
     # get employee name from user 
@@ -15,56 +11,60 @@ while programRunning:
 
     # check employee name for anything other than letters 
     employeeNameCheck = employeeName.isalpha()
-    if employeeNameCheck == False:
-        programRunning = False
-        break
-
+    
     # declare bad characters list for name
     nameBadChars = ['!', '"', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '=', '+' ',', '<', '>', '/', '?', ';', ':', '[', ']', '{', '}',')']        
 
     # for loop to test if any unwanted characters are in the employees name
+    hasBadCharacters = False
     for character in nameBadChars:
         if character in employeeName:
-            programRunning = False
-            break
+            hasBadCharacters = True
+
+    # check the has bas characters variable to see if it is less than 
+    if hasBadCharacters == True or employeeNameCheck == False:
+        break
         
     # get employee email address from user 
     employeeEmailAddress = input("Please enter your email address: ")
-    emailBadChars = ['!', '"', '#', '$', '%', '^', '&', '*', '(', ')', '_', '=', '+' ',', '<', '>', '/', '?', ';', ':', '[', ']', '{', '}',')']
 
-    # test employees email address to see if any unneeded characters are in there
-    if len(employeeEmailAddress) == 0:
-        programRunning = False
-        break
+    # declare email bad characters
+    emailBadChars = ['!', '"', '#', '$', '%', '^', '&', '*', '(', ')', '_', '=', '+' ',', '<', '>', '/', '?', ';', ':', '[', ']', '{', '}',')']
     
+    employeeEmailAddressCheck = employeeEmailAddress.isalnum()
+    # check to see if the email is left blank 
+    if len(employeeEmailAddress) == 0:
+        break
+    # for loop to check unwanted characters in email bad chars
     for character in emailBadChars:
         if character in employeeEmailAddress:
-            programRunning = False
-            break
-
+            hasBadCharacters = True
+    
+    # if there are bad characters in the email or anything other than letters we would break 
+    if hasBadCharacters == True or employeeEmailAddressCheck == False:
+        break
 
     
     # get employees home address from user 
-    employeeAddress = input("Please enter your home address: ")
-
-    # check employee address against the isalnum method to see if it has any unneeded characters
-    employeeAddressCheck = employeeAddress.isalnum()
+    employeeAddress = input("Please enter the employee's home address(optional): ")
+    # declare address bad characters list 
     addressBadChars = ['!', '"', "'", '@', '$', '%', '^', '&', '*', '_', '=', '+', '<', '>',  '?', ';', ':', '[', ']', '{', '}', ')']
-    if employeeAddressCheck == False:
-        programRunning = False
+    
+    # for loop to loop the different characters in address bad chars
     for charactor in addressBadChars:
         if character in employeeAddress:
-            programRunning = False
-            employeeAddressCheck = False
+            hasBadCharacters = True
             break
+    if hasBadCharacters == True:
+        break
     # print out employee information
-    # if the user didnt enter a address the first statement is executed 
-    if len(employeeAddress) == 0 or employeeAddressCheck == False:
-        print(f"Hello, {employeeName}. Your Employee ID is {employeeId}, and your email address is {employeeEmailAddress}. You did not provide a home address or it was invalid. ")
+    # if the user didnt enter a address the first if statement is executed. If the employee address was valid, the else statement is exdcuted
+    if len(employeeAddress) == 0:
+        print(f"Hello, {employeeName}. Your Employee ID is {employeeId}, and your email address is {employeeEmailAddress}. You did not provide a home address ")
     else:
-        print(f"Hello, {employeeName}. Your Employee ID is {employeeId}, and your email address is {employeeEmailAddress}. Your address is {employeeAddress}. ")
-        
+        print(f"Hello, {employeeName.title()}. Your Employee ID is {employeeId}, and your email address is {employeeEmailAddress}. Your address is {employeeAddress}. ")
     
-    # set the program running variable to false so the program doesnt run again
-    programRunning = False
+    # final break statement so the loop doesnt execute again
+    break
+    
 
