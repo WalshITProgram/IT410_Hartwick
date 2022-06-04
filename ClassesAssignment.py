@@ -44,7 +44,7 @@ class Validator():
                 hasBadCharacters = True
                 break
         # if the hasBadCharacters variable comes back as true we will return false, otherwise it will return true
-        if hasBadCharacters == True:
+        if hasBadCharacters == True or len(email) == 0:
             return False
         else:
             return True
@@ -67,7 +67,7 @@ class Validator():
                 hasBadCharacters = True
                 break
         # if the hasBadCharacters variable comes back as true we will return false, otherwise it will return true
-        if hasBadCharacters == True:
+        if hasBadCharacters == True or len(name) == 0:
             return False
         else:
             return True
@@ -76,7 +76,7 @@ class Validator():
         """This method validates the studentID inputted by the user"""
         digitTest = studentID.isdigit()
         # if the studentId has anything other than digits in it or if it is more than 7 digits we would return false. Otherwise it will return true
-        if digitTest == False or len(studentID) >= 8:
+        if digitTest == False or len(studentID) >= 8 or len(studentID) == 0:
             return False
         else:
             return True
