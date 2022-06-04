@@ -1,22 +1,27 @@
+# declare the person class
+class Person():
+    """This class will be extended into the student and instructor classes"""
+    def __init__(self, name, emailAddress):
+        """Intializes the attrbiute of the person class"""
+        self.name = name
+        self.emailAddress = emailAddress
 # declare the student class that will store each students record 
-class Student():
+class Student(Person):
     """This class stores the student records"""
     def __init__(self, name, emailAddress, studentID, programStudy):
         """This constructor intializes the student attributes"""
-        self.name = name
-        self.emailAddress = emailAddress
+        super().__init__(name, emailAddress)
         self.studentID = studentID
         self.programStudy = programStudy
     def displayInformation(self):
         """This method displays the students attributes"""
         print(f"{self.name.title()}'s id number is {self.studentID}, his program of study is {self.programStudy}, and his email address is {self.emailAddress}")
 # declare the instructor class that will store information about the instructor
-class Instructor():
+class Instructor(Person):
     """This class stores the instructor records"""
     def __init__(self, name, emailAddress, instructorID, institution, highestDegree):
         """This constructor intializes the instructor attributes"""
-        self.name = name
-        self.emailAddress = emailAddress
+        super().__init__(name, emailAddress)
         self.instructorID = instructorID
         self.institution = institution
         self.highestDegree = highestDegree
@@ -135,7 +140,10 @@ while anotherUser != "q":
         # after all the information is collected I would create a student object
         # I will also append the entry to my college records list and then call my student displayInformation method that will display the student's information
         student = Student(name, emailAddress, studentId, programStudy)
-        college_records.append({"Name": name, "EmailAddress": emailAddress, "StudentID" : studentId, "ProgramStudy": programStudy})
+        college_records.append(student.name)
+        college_records.append(student.emailAddress)
+        college_records.append(student.studentID)
+        college_records.append(student.programStudy)
         student.displayInformation()
     # if the user didnt enter s, then I Assume that the user entered I for instructor. 
     # In that case, we would prompt them for their instructorID, last college attended and highest degree earned 
@@ -168,7 +176,12 @@ while anotherUser != "q":
         # after all the information is collected I would create an instructor object
         # I will also append the entry to my college records list and then call my student displayInformation method that will display the student's information
         instructor = Instructor(name, emailAddress, instructorId, college, degreeEarned)
-        college_records.append({"name": name, "EmailAddress": emailAddress, "InstructorID" : instructorId, "CollegeAttended": college, "DegreeEarned":degreeEarned})
+        college_records.append(instructor.name)
+        college_records.append(instructor.emailAddress)
+        college_records.append(instructor.instructorID)
+        college_records.append(instructor.institution)
+        college_records.append(instructor.highestDegree)
+
         instructor.displayInformation()
     # if the user enters Q the loop will break. Otherwise, if the user enters any other character it will continue
     anotherUser = input("Enter Q to quit or any other keyboard character to continue entering data: ").lower()
