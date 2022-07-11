@@ -1,28 +1,27 @@
 # declare the person class
 class Person():
     """This class will be extended into the student and instructor classes"""
-    def __init__(self, name, emailAddress):
+    def __init__(self, name, emailAddress, personID):
         """Intializes the attrbiute of the person class"""
         self.name = name
         self.emailAddress = emailAddress
+        self.personID = personID
 # declare the student class that will store each students record 
 class Student(Person):
     """This class stores the student records"""
     def __init__(self, name, emailAddress, studentID, programStudy):
         """This constructor intializes the student attributes"""
-        super().__init__(name, emailAddress)
-        self.studentID = studentID
+        super().__init__(name, emailAddress, studentID)
         self.programStudy = programStudy
     def displayInformation(self):
         """This method displays the students attributes"""
-        print(f"{self.name.title()}'s id number is {self.studentID}, his program of study is {self.programStudy}, and his email address is {self.emailAddress}")
+        print(f"{self.name.title()}'s id number is {self.personID}, his program of study is {self.programStudy}, and his email address is {self.emailAddress}")
 # declare the instructor class that will store information about the instructor
 class Instructor(Person):
     """This class stores the instructor records"""
     def __init__(self, name, emailAddress, instructorID, institution, highestDegree):
         """This constructor intializes the instructor attributes"""
-        super().__init__(name, emailAddress)
-        self.instructorID = instructorID
+        super().__init__(name, emailAddress, instructorID)
         self.institution = institution
         self.highestDegree = highestDegree
     def displayInformation(self):
@@ -142,7 +141,7 @@ while anotherUser != "q":
         student = Student(name, emailAddress, studentId, programStudy)
         college_records.append(student.name)
         college_records.append(student.emailAddress)
-        college_records.append(student.studentID)
+        college_records.append(student.personID)
         college_records.append(student.programStudy)
         student.displayInformation()
     # if the user didnt enter s, then I Assume that the user entered I for instructor. 
