@@ -47,11 +47,11 @@ class Validator():
             return False
         else:
             return True
-    def validateInstructorID(self, instructorID):
+    def validatePersonID(self, personID, maxLength):
         """This method validates the instructorID inputted by the user"""
         # if the instructorID has anything other than digits in it or if it is more than 5 digits we would return false. Otherwise it will return true
-        digitTest = instructorID.isdigit()
-        if digitTest == False or len(instructorID) > 5:
+        digitTest = personID.isdigit()
+        if digitTest == False or len(personID) > maxLength:
             return False
         else:
             return True
@@ -71,14 +71,7 @@ class Validator():
         else:
             return True
     
-    def validateStudentID(self, studentID):
-        """This method validates the studentID inputted by the user"""
-        digitTest = studentID.isdigit()
-        # if the studentId has anything other than digits in it or if it is more than 7 digits we would return false. Otherwise it will return true
-        if digitTest == False or len(studentID) >= 8 or len(studentID) == 0:
-            return False
-        else:
-            return True
+    
     
 
 
@@ -123,7 +116,7 @@ while anotherUser != "q":
         while True:
             studentId = input("Please enter your student id: ")
              # calling my validate student id method. If it comes back as false, we will prompt the user to enter the student id again. Otherwise the student id loop will break
-            validStudentID = person.validateStudentID(studentId)
+            validStudentID = person.validatePersonID(studentId, 7)
             if validStudentID == False:
                 print("Student id was not properly formatted. Please try again")
             else:
@@ -139,7 +132,7 @@ while anotherUser != "q":
         # after all the information is collected I would create a student object
         # I will also append the entry to my college records list and then call my student displayInformation method that will display the student's information
         student = Student(name, emailAddress, studentId, programStudy)
-        college_records.append(student.name)
+        college_records.append(student)
         college_records.append(student.emailAddress)
         college_records.append(student.personID)
         college_records.append(student.programStudy)
@@ -151,7 +144,7 @@ while anotherUser != "q":
         while True:
             instructorId = input("Please enter your instructor ID: ")
             # calling my validate instructor id method. If it comes back as false, we will prompt the user to enter the instructor id again. Otherwise the instructor id loop will break
-            validInstructorID =  person.validateInstructorID(instructorId)
+            validInstructorID =  person.validatePersonID(instructorId, 5)
             if validInstructorID == False:
                 print("Instructor id was not properly formatted. Please try again")
             else:
